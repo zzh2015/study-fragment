@@ -1,0 +1,4 @@
+1. gray value to RGB: gray = 0.2126 * r + 0.7152 * g + 0.0722 * b
+2. sudo apt-get install libtiff5-dev libjpeg8-dev zlib1g-dev \
+libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk
+sudo pip install pillow
