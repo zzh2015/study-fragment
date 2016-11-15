@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zzh/Document/study-fragment/CPP/BlockingQueue
+CMAKE_SOURCE_DIR = /home/user/Documents/study-fragment/CPP/BlockingQueue
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zzh/Document/study-fragment/CPP/BlockingQueue
+CMAKE_BINARY_DIR = /home/user/Documents/study-fragment/CPP/BlockingQueue
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(CMAKE_COMMAND) -E cmake_progress_start /home/zzh/Document/study-fragment/CPP/BlockingQueue/CMakeFiles /home/zzh/Document/study-fragment/CPP/BlockingQueue/Test/CMakeFiles/progress.marks
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f CMakeFiles/Makefile2 Test/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzh/Document/study-fragment/CPP/BlockingQueue/CMakeFiles 0
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(CMAKE_COMMAND) -E cmake_progress_start /home/user/Documents/study-fragment/CPP/BlockingQueue/CMakeFiles /home/user/Documents/study-fragment/CPP/BlockingQueue/Test/CMakeFiles/progress.marks
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f CMakeFiles/Makefile2 Test/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/Documents/study-fragment/CPP/BlockingQueue/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f CMakeFiles/Makefile2 Test/clean
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f CMakeFiles/Makefile2 Test/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f CMakeFiles/Makefile2 Test/preinstall
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f CMakeFiles/Makefile2 Test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f CMakeFiles/Makefile2 Test/preinstall
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f CMakeFiles/Makefile2 Test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Test/CMakeFiles/test_mutex.dir/rule:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f CMakeFiles/Makefile2 Test/CMakeFiles/test_mutex.dir/rule
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f CMakeFiles/Makefile2 Test/CMakeFiles/test_mutex.dir/rule
 .PHONY : Test/CMakeFiles/test_mutex.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ test_mutex: Test/CMakeFiles/test_mutex.dir/rule
 
 # fast build rule for target.
 test_mutex/fast:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/build
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/build
 .PHONY : test_mutex/fast
 
 __/condition.o: __/condition.cc.o
@@ -131,7 +131,7 @@ __/condition.o: __/condition.cc.o
 
 # target to build an object file
 __/condition.cc.o:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/__/condition.cc.o
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/__/condition.cc.o
 .PHONY : __/condition.cc.o
 
 __/condition.i: __/condition.cc.i
@@ -140,7 +140,7 @@ __/condition.i: __/condition.cc.i
 
 # target to preprocess a source file
 __/condition.cc.i:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/__/condition.cc.i
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/__/condition.cc.i
 .PHONY : __/condition.cc.i
 
 __/condition.s: __/condition.cc.s
@@ -149,7 +149,7 @@ __/condition.s: __/condition.cc.s
 
 # target to generate assembly for a file
 __/condition.cc.s:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/__/condition.cc.s
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/__/condition.cc.s
 .PHONY : __/condition.cc.s
 
 mutex_text.o: mutex_text.cc.o
@@ -158,7 +158,7 @@ mutex_text.o: mutex_text.cc.o
 
 # target to build an object file
 mutex_text.cc.o:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/mutex_text.cc.o
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/mutex_text.cc.o
 .PHONY : mutex_text.cc.o
 
 mutex_text.i: mutex_text.cc.i
@@ -167,7 +167,7 @@ mutex_text.i: mutex_text.cc.i
 
 # target to preprocess a source file
 mutex_text.cc.i:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/mutex_text.cc.i
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/mutex_text.cc.i
 .PHONY : mutex_text.cc.i
 
 mutex_text.s: mutex_text.cc.s
@@ -176,7 +176,7 @@ mutex_text.s: mutex_text.cc.s
 
 # target to generate assembly for a file
 mutex_text.cc.s:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/mutex_text.cc.s
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(MAKE) -f Test/CMakeFiles/test_mutex.dir/build.make Test/CMakeFiles/test_mutex.dir/mutex_text.cc.s
 .PHONY : mutex_text.cc.s
 
 # Help Target
@@ -205,6 +205,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/zzh/Document/study-fragment/CPP/BlockingQueue && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/user/Documents/study-fragment/CPP/BlockingQueue && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

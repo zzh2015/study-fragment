@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zzh/Document/study-fragment/CPP/BlockingQueue
+CMAKE_SOURCE_DIR = /home/user/Documents/study-fragment/CPP/BlockingQueue
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zzh/Document/study-fragment/CPP/BlockingQueue
+CMAKE_BINARY_DIR = /home/user/Documents/study-fragment/CPP/BlockingQueue
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzh/Document/study-fragment/CPP/BlockingQueue/CMakeFiles /home/zzh/Document/study-fragment/CPP/BlockingQueue/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/Documents/study-fragment/CPP/BlockingQueue/CMakeFiles /home/user/Documents/study-fragment/CPP/BlockingQueue/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzh/Document/study-fragment/CPP/BlockingQueue/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/Documents/study-fragment/CPP/BlockingQueue/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

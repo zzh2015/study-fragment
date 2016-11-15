@@ -5,8 +5,10 @@
  > Created Time: 2016年11月15日 星期二 18时41分16秒
  ************************************************************************/
 #include <iostream>
+#include <string>
 
 #include "../condition.h"
+#include "../blocking_queue.h"
 
 int main(int atgc,char **argv)
 {
@@ -17,7 +19,11 @@ int main(int atgc,char **argv)
     std::cout << "guard" << std::endl;
 
     Condition cond(mutex);
-    cond.WaitForSeconds(10.0);
+    cond.WaitForSeconds(3.0);
+
+    std::cout << "blocking queue" << std::endl;
+    BlockingQueue<std::string> bq;
+    bq.put("hello");
 
     return 0;
 }
