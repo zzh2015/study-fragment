@@ -11,19 +11,19 @@ class BlockingQueue {
         BlockingQueue() : mutexLock_(), notEmpty_(mutexLock_), queue_() {}
         ~BlockingQueue() {}
 
-        void put(const T &e) {
+        void Put(const T &e) {
             MutexLockGuard lock(mutexLock_);
             queue_.push_back(e);
             notEmpty_.Notify();
         }
 
-        void put (T &&e) {
+        void Put (T &&e) {
             MutexLockGuard lock(mutexLock_);
             queue_.push_back(std::move(e));
             notEmpty_.Notify();
         }
 
-        T tack() {
+        T Tack() {
             MutexLockGuard lock(mutexLock_);
             while (queue_.empty()) {
                 notEmpty_.Wait();
