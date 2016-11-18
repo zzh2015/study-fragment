@@ -1,0 +1,57 @@
+socks4 格式:
+    request:
+        VN 1 // protocol version
+        CD 1 // 1 connect, 2 bind
+        DSTPORT 2
+        DSTIP 4
+        USERID var
+        NULL 1
+    Response:
+        Vn 1
+        CD 1 // 90 allow, 91 reject or fail, 92  93 server can't verify client userID
+        DSTPORT 2
+        DSTIP 4
+socks4a 协议格式:
+    request:
+        VN 1 // protocol version
+        CD 1 // 1 connect, 2 bind
+        DSTPORT 2
+        DSTIP 4 // 0.0.0.x
+        USERID var
+        NULL 1
+        HOSTNAME var
+        NULL 1
+socks5 协议格式: //socks5  比socks4a多了鉴定 ipv6 udp
+        C -> S:
+            VER 1 // version 0x05
+            NMETHODS 1 // methods length
+            METHODS 1-255 // 认证方式
+                0x00 不需要认证
+                0x01 GSSAPI
+                0x02 用户名-密码认证
+                0x03-0x7F IANA分配
+                0x80-0xFE 私人方法
+                0xFF 无可接收的方法
+        S -> C:
+            VER 1 // 0x05
+            METHOD //服务端选中的方法, 0xFF 未选中 关闭客户端
+        #*****************************************************
+        C -> S:
+            VER 1, LEN 1, UNAME var, LEN 1, PASSWD var
+        S -> C:
+            VER 1, STATE 1 // 0x00 success, 0x01 fail
+        #*****************************************************
+        C -> S:
+            VER 1
+            CMD 1 // 0x01 CONNECT, 0x02 BIND, 0x03 UDP
+            RSV 1 // 0x00
+            ATYP 1  DSTADDR var// 0x01 DSTADDR 4, 0x03 url var, 0x04 IPV6 16
+            DSTPORT 2 //
+        S -> C:
+            VER 1
+            REP 1 // 0x00 success,0x01 fail, 0x02 deny, 0x03 network unreach, 0x04 host unreach, 0x05 conn deny, 0x06 ttl,0x07,0x08,0x09-0xFF
+            RSV 1 // 0x00
+            ATYP 1 BND ADDR // 0x01 IPv4 , 0x03 url, 0x04 IPv6
+            BND PORT 2
+
+
