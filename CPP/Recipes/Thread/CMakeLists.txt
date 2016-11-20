@@ -15,3 +15,6 @@ target_link_libraries(tv pthread)
 
 add_executable(ta parallel_accumulate.cc)
 target_link_libraries(ta pthread)
+
+add_executable(tm thread_mutex_test.cc)
+target_link_libraries(tm pthread)

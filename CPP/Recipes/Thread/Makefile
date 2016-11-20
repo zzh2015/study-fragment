@@ -48,24 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zzh/Document/study-fragment/CPP/Recipes/Thread
+CMAKE_SOURCE_DIR = /home/user/Documents/study-fragment/CPP/Recipes/Thread
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zzh/Document/study-fragment/CPP/Recipes/Thread
+CMAKE_BINARY_DIR = /home/user/Documents/study-fragment/CPP/Recipes/Thread
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -78,11 +67,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzh/Document/study-fragment/CPP/Recipes/Thread/CMakeFiles /home/zzh/Document/study-fragment/CPP/Recipes/Thread/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/Documents/study-fragment/CPP/Recipes/Thread/CMakeFiles /home/user/Documents/study-fragment/CPP/Recipes/Thread/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzh/Document/study-fragment/CPP/Recipes/Thread/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/Documents/study-fragment/CPP/Recipes/Thread/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -135,6 +135,19 @@ tv: cmake_check_build_system
 tv/fast:
 	$(MAKE) -f CMakeFiles/tv.dir/build.make CMakeFiles/tv.dir/build
 .PHONY : tv/fast
+
+#=============================================================================
+# Target rules for targets named tm
+
+# Build rule for target.
+tm: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tm
+.PHONY : tm
+
+# fast build rule for target.
+tm/fast:
+	$(MAKE) -f CMakeFiles/tm.dir/build.make CMakeFiles/tm.dir/build
+.PHONY : tm/fast
 
 #=============================================================================
 # Target rules for targets named ta
@@ -203,6 +216,33 @@ thread_guard_test.cc.s:
 	$(MAKE) -f CMakeFiles/tg.dir/build.make CMakeFiles/tg.dir/thread_guard_test.cc.s
 .PHONY : thread_guard_test.cc.s
 
+thread_mutex_test.o: thread_mutex_test.cc.o
+
+.PHONY : thread_mutex_test.o
+
+# target to build an object file
+thread_mutex_test.cc.o:
+	$(MAKE) -f CMakeFiles/tm.dir/build.make CMakeFiles/tm.dir/thread_mutex_test.cc.o
+.PHONY : thread_mutex_test.cc.o
+
+thread_mutex_test.i: thread_mutex_test.cc.i
+
+.PHONY : thread_mutex_test.i
+
+# target to preprocess a source file
+thread_mutex_test.cc.i:
+	$(MAKE) -f CMakeFiles/tm.dir/build.make CMakeFiles/tm.dir/thread_mutex_test.cc.i
+.PHONY : thread_mutex_test.cc.i
+
+thread_mutex_test.s: thread_mutex_test.cc.s
+
+.PHONY : thread_mutex_test.s
+
+# target to generate assembly for a file
+thread_mutex_test.cc.s:
+	$(MAKE) -f CMakeFiles/tm.dir/build.make CMakeFiles/tm.dir/thread_mutex_test.cc.s
+.PHONY : thread_mutex_test.cc.s
+
 thread_product_test.o: thread_product_test.cc.o
 
 .PHONY : thread_product_test.o
@@ -236,17 +276,21 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... tg"
 	@echo "... tv"
+	@echo "... tm"
 	@echo "... ta"
-	@echo "... rebuild_cache"
 	@echo "... parallel_accumulate.o"
 	@echo "... parallel_accumulate.i"
 	@echo "... parallel_accumulate.s"
 	@echo "... thread_guard_test.o"
 	@echo "... thread_guard_test.i"
 	@echo "... thread_guard_test.s"
+	@echo "... thread_mutex_test.o"
+	@echo "... thread_mutex_test.i"
+	@echo "... thread_mutex_test.s"
 	@echo "... thread_product_test.o"
 	@echo "... thread_product_test.i"
 	@echo "... thread_product_test.s"

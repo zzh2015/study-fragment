@@ -58,6 +58,7 @@ int main() {
         v.push_back(i);
     }
 
+    std::cout << "thread id: " << std::this_thread::get_id() << std::endl;
     unsigned long init = 0;
     std::cout << "accumulate: " << std::accumulate(v.begin(), v.end(), init) << std::endl;
     init = 0;
