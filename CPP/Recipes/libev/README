@@ -1,0 +1,18 @@
+libev 利用Reactor实现高性能的事件循环库:
+    分离事件处理和业务逻辑
+    抽象一套通用的多路复用接口
+    抽象io/timer/signal
+EV_WATCHER:
+    int active; // watcher 是否活跃，1 alive
+    int pending; // 存储watcher在pendings的索引 >0 表示未被处理
+    int proority; // 优先级
+    void *data; // 回调函数需要的数据
+    void (*cb) (EV_P_ struct type *w, int revents);
+EV_WATCHER_LIST:
+    struct ev_watcher_list *next;
+ev_io:
+    ev_io {
+        struct ev_watcher_list *next;
+        int fd;
+        int event;
+        };
