@@ -16,3 +16,22 @@ ev_io:
         int fd;
         int event;
         };
+===============================================================
+EV_P_ 函数声明的形参
+EV_A_ 函数调用的实参
+Watcher 一个或多个事件的监听器
+
+使用流程:
+    初始化框架:
+        struct ev_loop *loop = EV_DEFAULT;
+        struct ev_loop *loop = ev_default_loop(0);
+        struct ev_loop *loop = ev_loop_new(EVBACKEND_EPOLL);
+        //ev_loop_destroy(loop);
+    初始化监听器:
+        ev_TYPE w;
+        ev_TYPE_init (w, cb, ...);
+    加入到loop的监控器列表:
+        ev_TYPE_start(loop, w);
+    loop 开始处理事件:
+        ev_run(loop, 0);
+
