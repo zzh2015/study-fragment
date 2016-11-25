@@ -34,4 +34,15 @@ Watcher 一个或多个事件的监听器
         ev_TYPE_start(loop, w);
     loop 开始处理事件:
         ev_run(loop, 0);
-
+===============================================================
+libev default config:
+===============================================================
+libev error handling:os error,usage error,internal error
+os error -> ev_set_syserr_cb -> abort()
+usage error -> assert...
+internal error -> ...
+===============================================================
+libev global function:
+typedef double ev_tstamp;
+ev_tstamp ev_time() -> current time
+ev_sleep(ev_tstamp internal)

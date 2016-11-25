@@ -1,14 +1,12 @@
 /*************************************************************************
- > File Name: libev_test.c
- > Author:
- > Mail:
- > Created Time: 2016年11月21日 星期一 16时44分59秒
+  > File Name: libev_test.c
+  > Author:
+  > Mail:
+  > Created Time: 2016年11月21日 星期一 16时44分59秒
  ************************************************************************/
 #include <ev.h>
 #include <stdio.h>
 
-ev_io stdin_watcher;
-ev_timer timeout_watcher;
 
 static void stdin_cb (EV_P_ ev_io *w, int revents) {
     puts("stdin ready");
@@ -25,7 +23,13 @@ static void timeout_cb (EV_P_ ev_timer *w, int revents) {
 }
 
 int main() {
+    printf ("major:%d minor:%d, time: %f\n", ev_version_major(), ev_version_minor(), \
+            ev_time());
+    ev_sleep(1.0);
+    ev_io stdin_watcher;
+    ev_timer timeout_watcher;
     struct ev_loop *loop = EV_DEFAULT;
+
 
     ev_io_init (&stdin_watcher, stdin_cb, 1, EV_READ);
     ev_io_start (loop, &stdin_watcher);
