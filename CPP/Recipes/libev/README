@@ -46,3 +46,15 @@ libev global function:
 typedef double ev_tstamp;
 ev_tstamp ev_time() -> current time
 ev_sleep(ev_tstamp internal)
+unsigned int ev_supported_backends(); -> 后台支持
+ev_set_allocator(void *(*cb)(void *, long size) throw());
+ev_set_syserr_cb();
+ev_feed_signal(int signum);
+
+ev loops:
+struct_ev_loop *ev_default_loop(EVBACKEND_POLL | EVBACKEND_SELECT | EVFLAG_NOENV)
+struct ev_loop *ev_loop_new(unit flags);
+flags:
+ev_loop_destroy(loop)
+ev_loop_fork(loop)
+
