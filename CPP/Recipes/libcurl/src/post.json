@@ -1,0 +1,14 @@
+{
+    "agent_ip":	"127.0.0.1",
+    "linecount":	3,
+    "lineinfo":	[{
+        "vps_uuid":	"04b84af36ece4d6b58d3a13a9f26fe60",
+        "ping":	72
+    }, {
+    "vps_uuid":	"1aebbe2629d3f3673c559c281510d758",
+    "ping":	72
+    }, {
+    "vps_uuid":	"3802d31f31e7d95c4229eb47d875f77c",
+    "ping":	0
+    }]
+}
