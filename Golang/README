@@ -1,0 +1,2 @@
+禁止内联，输出优化信息:
+go build -gcflags "-l -m"
