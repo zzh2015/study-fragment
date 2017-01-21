@@ -1,0 +1,18 @@
+web概述
+    url---->dns server---->IP--TCP-HTTP
+    DNS解析流程:
+        check hosts文件,是否存在映射
+        check DNS解析器缓存,是否存在映射
+        本地DNS服务器区域解析，是否存在映射
+        check本地DNS服务器解析缓存,不具有权威性
+        本地DNS服务把请求发送到“根DNS服务器”
+    HTTP 80
+    GET 请求析消息体为空,POST请求带有消息体
+    GET提交的数据会放在URL之后,以?分隔URL和传输数据,参数之间以&相连
+        EditPosts.aspx?name=test1&id=123456
+        POST方法是把提交的数据放在HTTP包的body中
+    GET提交的数据有大小限制(URL有大小限制),而POST方法没有限制
+    GET方式提交数据会带来安全问题,比如一个登录页面,通过GET方式提交数据时,
+    关键信息会被缓存被人窃取
+
+
