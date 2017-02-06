@@ -15,4 +15,111 @@ web概述
     GET方式提交数据会带来安全问题,比如一个登录页面,通过GET方式提交数据时,
     关键信息会被缓存被人窃取
 
+go 预防跨站
+    go html/template里带有下面几个函数转义
+    func HTMLEscape(w.io.Writer, b []byte) // 转义写到w
+    func HTMLEscapeString(s string) string // 转义返回字符串
+    func HTMLEscaptor(args...interface{}) // 支持多个参数一起转义,返回结果字符串
 
+防止多次递交表单
+    表单中添加一个带有唯一值的隐藏字段
+
+// 数据库驱动
+// https://github.com/mattn/go-sqlite3
+func init() {
+    sql.Register("sqlite3", &SQLiteDriver())
+}
+
+// https://github.com/mikespook/mymysql
+var d = Driver{proto: "tcp", raddr: "127.0.0.1:3306"}
+func init() {
+    Register("SET NAMES utf8")
+    sql.Register("mymysql", &d)
+}
+// database/sql 内部通过一个map来存储用户定义的相应驱动
+var drivers = make(map[string]driver.Driver)
+drivers[name] = driver
+
+// database/sql内部可以注册多个数据库驱动，只要不重复
+import (
+    "database/sql"
+    _ "github.com/mattn/sqlite3" // _ 代表不直接使用包定义的函数、变量等资源
+)
+***********************************************************************************
+Driver数据库驱动接口
+type Driver interface {
+    Open(name string) (Conn, err) // 返回Conn
+}
+Conn只能用来执行一次的goroutine操作
+// go goroutineA(Conn)  go goroutineB(Conn) 为错误
+
+Conn数据库连接的接口定义
+type Conn interface {
+    Prepare(query string) (Stmt, error) // 返回与当前连接的sql语句的准备状态,可以进行查询\删除等操作
+    Close() error // 关闭当前的连接
+    Begin() (Tx, error) // 代表事物的Tx，查询\更新, 回滚\递交
+}
+
+Stmt一种准备好的状态
+type Stmt interface {
+    Close() error
+    NumInput() int
+    Exec(args []value) (Result, error) // update/insert
+    Query(args []value) (Rows, error) // select
+}
+
+事物处理
+type Tx interface {
+    Commit() error
+    Rollback() error
+}
+
+Conn可选的接口
+type Execer interface {
+    Exec(query string, args []value) (Result, error)
+}
+
+Update/insert操作返回的接口定义
+type Result interface {
+    LastInsertId() (int64, error) // 自增ID
+    RowsAffected() (int64, error) // query数据条目
+}
+
+Rows执行查询返回结果集接口定义
+type Rows interface {
+    Columns() [] string // 数据库表的字段信息
+    Close() error
+    Next(dest []Value) error //
+}
+
+// driver.RowsAffected
+// driver.Value
+// driver.ValueConverter
+// driver.Valuer
+
+//// PostgreSQL数据库
+//// PostgreSQL是一个自由的对象-关系数据库服务器
+//// NOSQL数据库操作
+//// NOSQL是非关系型数据库
+//// 流行的NOSQL主要有:redis\mongodb\Cassadra\Membase
+
+HTTP请求无状态问题,Web的解决方案是cookie和sessionID
+cookie是一种客户端机制,把用户数据保存在客户端里
+sessionID是一种服务端机制,服务器使用一种散列表的结构存储信息,每个网站访客都会给分配一个唯一的标识符,即sessionID
+//// sessionID存放形式: 经过url传递,保存在客户端的cookies里，或者将Session存储在数据库内
+
+===========================================================================================
+cookie原理图:
+    1.Client -发起请求->         页面1
+    2.页面1  -赋值cokkie->        Client
+    3.Client -携cookie一起请求-> 页面2
+cookie有时间限制:会话cookie和持久cookie
+    会话cookie一般保存在内存中,不保存在硬盘中
+    设置过期时间,浏览器把cookie保存在硬盘上
+===========================================================================================
+session 服务器上保存用户操作的历史信息
+    服务器使用session id来标识session，session id由服务器负责产生,保证随机性与唯一性,
+    相当于一个随机密钥,避免在握手或传输中暴漏用户真实的密码
+    Client -访问并建立session对应关系-> 服务端
+    Client -访问网站通过sessiion ID获取对应内容-> 服务端
+    服务端 -返回内容-> Client

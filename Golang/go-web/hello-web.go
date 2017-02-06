@@ -33,12 +33,15 @@ func login(w http.ResponseWriter, r *http.Request) {
         log.Println(t.Execute(w, nil))
     } else {
         r.ParseForm()
-        fmt.Println("username:", r.Form["username"])
-        fmt.Println("password:", r.Form["password"])
+        fmt.Println("username:", template.HTMLEscapeString(r.Form.Get("username")))
+        fmt.Println("password:", template.HTMLEscapeString(r.Form.Get("password")))
+        // fmt.Println("username:", r.Form["username"])
+        // fmt.Println("password:", r.Form["password"])
         // reply tips
         var tips string = "welcom access my website,"
         tips += strings.Join(r.Form["username"],"")
-        fmt.Fprintf(w, tips)
+        // fmt.Fprintf(w, tips)
+        template.HTMLEscape(w, []byte(r.Form.Get("username")))
     }
     // 获取表单内容
     /*
