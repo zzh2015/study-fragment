@@ -1,0 +1,15 @@
+1. gofmt -w -w xx.go 格式化源码
+2 // 行注释, /* */包注释
+3. godoc 可以提取源码中的注释生成文档
+4. Array 函数参数中数组以copy by value的方式传递
+// 高效的方式,在Golang中以slice的方式传递
+func Sum(a *[3]float64) (sum float64) {
+    for _, v := range *a {
+        sum += v
+    }
+
+    return
+}
+
+arr := [...]float64{1.0, 2.0, 3.0}
+x := Sum(&arr)
